@@ -1,1 +1,27 @@
-<p>books works!</p>
+<h4> All books</h4>
+<!-- <table>
+    <tr>
+        <th>Name</th>
+        <th>Writer</th>
+        <th>Pages</th>
+    </tr>
+    <tr *ngFor="let book of allBooks">
+        <td>{{book.name}}</td>
+        <td>{{book.writer}}</td>
+        <td>{{book.pages}}</td>
+
+    </tr>
+</table> -->
+
+<form>
+    <input type="text" name="param" [(ngModel)]="searchParam">
+    <button (click)="search()">Search</button>
+        
+</form>
+
+
+<div *ngFor="let book of allBooks">
+    <app-bookdetails [myBook]="book"></app-bookdetails>
+</div>
+
+<button (click)="navigate()"> Navigate to read param</button>

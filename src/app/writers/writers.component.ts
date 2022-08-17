@@ -17,4 +17,12 @@ export class WritersComponent implements OnInit {
 
   allWriters: Writer[]
 
+  sortByAwards(){
+    this.allWriters = this.writerService.sortWritersByAward();
+  }
+
+  sortByBirthday(){
+    this.allWriters = this.writerService.sortWritersByBirthday();
+  }
+
 }

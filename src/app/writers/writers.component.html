@@ -1,15 +1,27 @@
 <h3>Writers</h3>
 
-<table>
-    <tr>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Awards</th>
-    </tr>
-    <tr *ngFor="let writer of allWriters">
-        <th>{{writer.firstName}}</th>
-        <th>{{writer.lastName}}</th>
-        <th>{{writer.awards}}</th>
 
-    </tr>
-</table>
+<div *ngIf="allWriters.length>0; else noWritersMessage">
+    <button (click)="sortByAwards()">Sort by awards</button>
+    <button (click)="sortByBirthday()">Sort by birthday</button>
+    <table>
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Awards</th>
+            <th>Birthday</th>
+        </tr>
+        <tr *ngFor="let writer of allWriters" [class.moreAwards]="writer.awards>2">
+            <th>{{writer.firstName}}</th>
+            <th>{{writer.lastName}}</th>
+            <th>{{writer.awards}}</th>
+            <th>{{writer.birthday.getFullYear()}}-{{writer.birthday.getMonth()+1}}-{{writer.birthday.getDate()}}</th>
+    
+        </tr>
+    </table>
+
+</div>
+
+<ng-template #noWritersMessage>
+    No writers
+</ng-template>
