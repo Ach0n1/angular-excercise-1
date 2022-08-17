@@ -1,0 +1,15 @@
+<h3>Writers</h3>
+
+<table>
+    <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Awards</th>
+    </tr>
+    <tr *ngFor="let writer of allWriters">
+        <th>{{writer.firstName}}</th>
+        <th>{{writer.lastName}}</th>
+        <th>{{writer.awards}}</th>
+
+    </tr>
+</table>
